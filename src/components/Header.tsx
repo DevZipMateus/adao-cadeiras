@@ -37,8 +37,8 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-background/95 backdrop-blur-md shadow-nav' 
-          : 'py-4 bg-transparent'
+          ? 'py-3 bg-primary/95 backdrop-blur-md shadow-nav' 
+          : 'py-4 bg-primary'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
@@ -51,8 +51,8 @@ const Header = () => {
                 className="h-12 w-12 object-contain"
               />
               <div>
-                <h1 className="text-xl md:text-2xl font-display font-bold text-foreground">
-                  <span className="text-primary">Adão</span> Cadeiras
+                <h1 className="text-xl md:text-2xl font-display font-bold text-primary-foreground">
+                  <span className="text-accent">Adão</span> Cadeiras
                 </h1>
                 <p className="text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
               </div>
@@ -68,7 +68,7 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <Button 
               onClick={handleWhatsAppClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
             >
               Solicitar Orçamento
             </Button>
@@ -78,18 +78,18 @@ const Header = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-foreground">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-primary-foreground">
                   <Menu size={24} />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="top" className="pt-16 pb-8 px-6">
+              <SheetContent side="top" className="pt-16 pb-8 px-6 bg-primary">
                 <nav className="flex flex-col items-center space-y-4 text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
                     <Button 
                       onClick={handleWhatsAppClick}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-4"
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-4"
                     >
                       Solicitar Orçamento
                     </Button>
@@ -126,8 +126,8 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           href={link.href}
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
-              ? 'text-xl text-foreground hover:text-primary mb-2 w-full text-center py-3' 
-              : 'text-foreground/80 hover:text-primary hover:bg-secondary/50'
+              ? 'text-xl text-primary-foreground hover:text-accent mb-2 w-full text-center py-3' 
+              : 'text-primary-foreground/90 hover:text-accent hover:bg-white/10'
             }`}
           onClick={onClick}
         >
