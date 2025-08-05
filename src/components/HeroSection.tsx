@@ -83,8 +83,8 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-left">
+          <div className="flex items-center justify-center">
+            <div className="text-center max-w-4xl">
               <span className="inline-block px-4 py-2 bg-accent/20 backdrop-blur-md rounded-full text-white font-medium mb-6 animate-slide-up [animation-delay:300ms]">
                 ✨ 15 anos transformando eventos especiais
               </span>
@@ -93,11 +93,11 @@ const HeroSection = () => {
                 Sua festa merece o <span className="text-accent">melhor lugar</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl animate-slide-up [animation-delay:700ms]">
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
                 Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up [animation-delay:900ms] mb-8">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:900ms] mb-8">
                 <Button 
                   size="lg" 
                   className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-md shadow-lg group"
@@ -116,7 +116,7 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-8 text-white/80 text-sm animate-slide-up [animation-delay:1100ms]">
+              <div className="flex items-center justify-center space-x-8 text-white/80 text-sm animate-slide-up [animation-delay:1100ms]">
                 <div className="flex items-center">
                   <div className="flex mr-2">
                     {[1,2,3,4,5].map(i => (
@@ -128,38 +128,6 @@ const HeroSection = () => {
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
                   Atendimento personalizado
-                </div>
-              </div>
-            </div>
-
-            <div className="hidden lg:block animate-slide-up [animation-delay:800ms]">
-              <div className="relative">
-                <div className="absolute inset-0 bg-accent/20 rounded-2xl blur-2xl"></div>
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-                  <div className="text-center mb-6">
-                    <img 
-                      src="/lovable-uploads/4ff42cba-2ac0-4cbb-972f-7064d5c308fd.png" 
-                      alt="Logo Adão Cadeiras" 
-                      className="h-24 w-24 mx-auto mb-4 object-contain"
-                    />
-                    <h3 className="text-2xl font-bold text-white mb-2">Adão Cadeiras</h3>
-                    <p className="text-accent font-medium">Aluguel de móveis para eventos</p>
-                  </div>
-                  
-                  <div className="space-y-4 text-white/90">
-                    <div className="flex items-center justify-between py-2 border-b border-white/20">
-                      <span>Modelos disponíveis</span>
-                      <span className="text-accent font-bold">20+</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2 border-b border-white/20">
-                      <span>Anos de experiência</span>
-                      <span className="text-accent font-bold">15</span>
-                    </div>
-                    <div className="flex items-center justify-between py-2">
-                      <span>Eventos realizados</span>
-                      <span className="text-accent font-bold">1000+</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
