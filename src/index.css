@@ -8,27 +8,27 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 210 15% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 210 15% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 210 15% 20%;
     
     --secondary: 210 40% 98%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary-foreground: 210 15% 20%;
     --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 210 15% 46%;
     
-    --primary: 142 70% 45%;
+    --primary: 220 100% 45%;
     --primary-foreground: 0 0% 100%;
-    --accent: 47 96% 53%;
-    --accent-foreground: 26 83% 14%;
+    --accent: 45 95% 60%;
+    --accent-foreground: 45 95% 15%;
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 70% 45%;
+    --ring: 220 100% 45%;
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
@@ -159,13 +159,13 @@ html {
   }
 }
 
-/* Agricultural Theme Enhancements */
+/* Chair rental theme enhancements */
 .hero-overlay {
   background: linear-gradient(
     135deg,
-    rgba(34, 197, 94, 0.8) 0%,
-    rgba(21, 128, 61, 0.9) 50%,
-    rgba(22, 101, 52, 0.95) 100%
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(29, 78, 216, 0.9) 50%,
+    rgba(30, 64, 175, 0.95) 100%
   );
 }
 
@@ -187,7 +187,7 @@ html {
 }
 
 .product-card:hover {
-  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
 }
 
 .product-card:hover .product-image {
@@ -198,26 +198,26 @@ html {
   transition: transform 0.5s ease;
 }
 
-/* Agricultural Color Gradients */
-.agro-gradient {
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+/* Chair rental color gradients */
+.chair-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
 }
 
-.earth-gradient {
-  background: linear-gradient(135deg, #a3a3a3 0%, #737373 50%, #525252 100%);
+.gold-gradient {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
 }
 
 /* Enhanced Button Styles */
 .cta-button {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
 .cta-button:before {
@@ -270,7 +270,7 @@ html {
 
 /* Focus indicators for better accessibility */
 .focus-visible {
-  outline: 2px solid rgb(34, 197, 94);
+  outline: 2px solid rgb(59, 130, 246);
   outline-offset: 2px;
 }
 
@@ -284,21 +284,21 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(34, 197, 94);
+  background: rgb(59, 130, 246);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(21, 128, 61);
+  background: rgb(29, 78, 216);
 }
 
 /* Enhanced Shadow Utilities */
-.shadow-agro {
-  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+.shadow-chair {
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
 }
 
-.shadow-earth {
-  box-shadow: 0 10px 30px rgba(92, 58, 34, 0.1);
+.shadow-gold {
+  box-shadow: 0 10px 30px rgba(251, 191, 36, 0.1);
 }
 
 .shadow-nav {

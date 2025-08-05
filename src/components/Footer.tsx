@@ -15,48 +15,58 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-4">
-              <span className="text-primary">AgroTech</span> Implementos
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                alt="Logo Adão Cadeiras" 
+                className="h-12 w-12 object-contain"
+              />
+              <div>
+                <h3 className="text-xl font-bold">
+                  <span className="text-primary">Adão</span> Cadeiras
+                </h3>
+                <p className="text-xs text-accent">Sua festa merece o melhor lugar</p>
+              </div>
+            </div>
             <p className="text-white/80 max-w-xs">
-              Soluções completas em implementos agrícolas, máquinas e equipamentos para o agronegócio.
+              Há 15 anos oferecendo qualidade e conforto em aluguel de cadeiras e móveis para eventos especiais.
             </p>
             <div className="flex space-x-4 mt-6">
-              <FooterSocialLink href="#" aria-label="Facebook" />
-              <FooterSocialLink href="#" aria-label="Instagram" />
-              <FooterSocialLink href="#" aria-label="LinkedIn" />
+              <FooterSocialLink 
+                href="https://www.instagram.com/adaocadeiras?igsh=MTJtMXI4OG81anZtNw==" 
+                aria-label="Instagram" 
+              />
             </div>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#hero">Início</FooterNavItem>
-              <FooterNavItem href="#categories">Produtos</FooterNavItem>
-              <FooterNavItem href="#brands">Marcas</FooterNavItem>
-              <FooterNavItem href="#about">Sobre Nós</FooterNavItem>
-              <FooterNavItem href="#contact">Contato</FooterNavItem>
+              <FooterNavItem href="#inicio">Início</FooterNavItem>
+              <FooterNavItem href="#sobre">Sobre</FooterNavItem>
+              <FooterNavItem href="#servicos">Serviços</FooterNavItem>
+              <FooterNavItem href="#depoimentos">Depoimentos</FooterNavItem>
+              <FooterNavItem href="#contato">Contato</FooterNavItem>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Categorias</h4>
+            <h4 className="text-lg font-semibold mb-4">Serviços</h4>
             <ul className="space-y-2">
-              <FooterNavItem href="#categories">Máquinas e Tratores</FooterNavItem>
-              <FooterNavItem href="#categories">Sementes e Mudas</FooterNavItem>
-              <FooterNavItem href="#categories">Defensivos e Fertilizantes</FooterNavItem>
-              <FooterNavItem href="#categories">Peças e Assistência</FooterNavItem>
+              <FooterNavItem href="#servicos">Casamentos</FooterNavItem>
+              <FooterNavItem href="#servicos">Eventos Corporativos</FooterNavItem>
+              <FooterNavItem href="#servicos">Festas e Celebrações</FooterNavItem>
+              <FooterNavItem href="#servicos">Móveis Complementares</FooterNavItem>
             </ul>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold mb-4">Contato</h4>
             <ul className="space-y-3 text-white/80">
-              <li>(11) 3456-7890</li>
-              <li>contato@agrotechimplementos.com.br</li>
-              <li>Rod. BR-163, Km 85, Campo Grande - MS</li>
-              <li>Segunda a Sexta, 7h às 17h</li>
-              <li>Sábado, 8h às 12h</li>
+              <li>(22) 99966-7575</li>
+              <li>adaocadeirasltda@gmail.com</li>
+              <li>Severino Coutinho n°123</li>
+              <li>Segunda a Sábado, 8h às 18h</li>
             </ul>
           </div>
         </div>
@@ -65,7 +75,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm">
-            © {new Date().getFullYear()} AgroTech Implementos. Todos os direitos reservados.
+            © {new Date().getFullYear()} Adão Cadeiras. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0">
             <Button
@@ -107,6 +117,8 @@ interface FooterSocialLinkProps {
 const FooterSocialLink = (props: FooterSocialLinkProps) => (
   <a
     {...props}
+    target="_blank"
+    rel="noopener noreferrer"
     className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/20 hover:bg-primary/80 transition-colors duration-200"
   />
 );

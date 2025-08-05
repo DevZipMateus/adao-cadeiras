@@ -30,7 +30,7 @@ const Header = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/5567987654321?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20implementos%20agrícolas.', '_blank');
+    window.open('https://wa.me/5522999667575?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20aluguel%20de%20cadeiras%20e%20móveis.', '_blank');
   };
 
   return (
@@ -44,9 +44,19 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
           <a href="#" className="relative z-20">
-            <h1 className="text-xl md:text-2xl font-display font-bold text-foreground">
-              <span className="text-primary">AgroTech</span> Implementos
-            </h1>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                alt="Adão Cadeiras - Logo" 
+                className="h-12 w-12 object-contain"
+              />
+              <div>
+                <h1 className="text-xl md:text-2xl font-display font-bold text-foreground">
+                  <span className="text-primary">Adão</span> Cadeiras
+                </h1>
+                <p className="text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
+              </div>
+            </div>
           </a>
 
           {/* Desktop Menu */}
@@ -101,11 +111,11 @@ interface NavLinksProps {
 
 const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
   const links = [
-    { name: 'Início', href: '#hero' },
-    { name: 'Produtos', href: '#products' },
-    { name: 'Marcas', href: '#brands' },
-    { name: 'Sobre Nós', href: '#about' },
-    { name: 'Contato', href: '#contact' },
+    { name: 'Início', href: '#inicio' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Serviços', href: '#servicos' },
+    { name: 'Depoimentos', href: '#depoimentos' },
+    { name: 'Contato', href: '#contato' },
   ];
 
   return (

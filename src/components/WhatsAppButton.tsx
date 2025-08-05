@@ -22,7 +22,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleOpenWhatsApp = () => {
-    window.open('https://wa.me/5511987654321?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20contábeis.', '_blank');
+    window.open('https://wa.me/5522999667575?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20aluguel%20de%20cadeiras%20e%20móveis%20para%20eventos.', '_blank');
     setIsOpen(false);
   };
 
@@ -42,7 +42,7 @@ const WhatsAppButton = () => {
             </button>
           </div>
           <p className="text-gray-600 text-sm mb-3">
-            Olá! Estamos aqui para ajudar com suas dúvidas sobre serviços contábeis.
+            Olá! Estamos aqui para ajudar com o aluguel de cadeiras e móveis para seu evento.
           </p>
           <button
             onClick={handleOpenWhatsApp}

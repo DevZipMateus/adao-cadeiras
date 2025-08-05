@@ -1,38 +1,9 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-
-const testimonials = [
-  {
-    name: "João Henrique Silva",
-    company: "Fazenda Santa Rita",
-    image: "/placeholder.svg",
-    text: "A AgroTech transformou nossa operação de plantio. Os implementos que adquirimos aumentaram nossa produtividade em 30% e a assistência técnica é excepcional. Recomendo para todos os produtores da região."
-  },
-  {
-    name: "Maria Fernanda Costa",
-    company: "Agropecuária Três Irmãos",
-    image: "/placeholder.svg",
-    text: "Trabalho com a AgroTech há mais de 5 anos e nunca me decepcionaram. Equipamentos de primeira qualidade, preços justos e um atendimento que realmente entende as necessidades do campo."
-  },
-  {
-    name: "Roberto Almeida",
-    company: "Fazenda Boa Vista",
-    image: "/placeholder.svg",
-    text: "Os tratores e implementos que compramos da AgroTech têm sido fundamentais para o sucesso da nossa safra. A equipe técnica nos orientou na escolha certa e o suporte pós-venda é exemplar."
-  },
-  {
-    name: "Carlos Eduardo Souza",
-    company: "Sítio Esperança Verde",
-    image: "/placeholder.svg",
-    text: "Como pequeno produtor, encontrei na AgroTech um parceiro que oferece soluções adequadas ao meu orçamento. Consegui modernizar minha propriedade com equipamentos de qualidade e financiamento facilitado."
-  }
-];
+import { Star, Quote } from 'lucide-react';
 
 const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -55,94 +26,64 @@ const TestimonialsSection = () => {
     };
   }, []);
 
-  const handlePrev = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const handleNext = () => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    setTimeout(() => setIsTransitioning(false), 600);
-  };
-
-  const getVisibleTestimonials = () => {
-    // For mobile, only show one testimonial
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      return [testimonials[currentIndex]];
+  const testimonials = [
+    {
+      name: "Maria Silva",
+      event: "Casamento",
+      rating: 5,
+      content: "O Adão e sua equipe foram perfeitos! As cadeiras chegaram no horário, estavam impecáveis e fizeram toda a diferença na decoração do meu casamento. Recomendo de olhos fechados!",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      name: "João Santos",
+      event: "Evento Corporativo",
+      rating: 5,
+      content: "Excelente serviço! Precisávamos de 200 cadeiras para um seminário e tudo foi entregue pontualmente. A qualidade dos móveis é surpreendente e o atendimento é nota 10.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+    },
+    {
+      name: "Ana Costa",
+      event: "Aniversário",
+      rating: 5,
+      content: "Já é a terceira vez que alugo cadeiras com a Adão Cadeiras. Sempre um serviço impecável, cadeiras lindas e bem conservadas. Parabéns pela dedicação e qualidade!",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     }
-    
-    // For larger screens, show multiple testimonials
-    const items = [];
-    for (let i = 0; i < 2; i++) {
-      const index = (currentIndex + i) % testimonials.length;
-      items.push(testimonials[index]);
-    }
-    return items;
-  };
+  ];
 
   return (
-    <section ref={sectionRef} className="section-padding bg-gray-50 overflow-hidden">
-      <div className="container mx-auto">
+    <section id="depoimentos" ref={sectionRef} className="section-padding bg-secondary/30 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Depoimentos
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
             O Que Nossos Clientes Dizem
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto animate-on-scroll">
-            Atendimento especializado e equipamentos de qualidade são nossa marca registrada.
-            Veja o que nossos parceiros do agronegócio têm a dizer sobre nossos serviços.
+            15 anos de experiência resultaram em centenas de eventos bem-sucedidos e clientes satisfeitos. 
+            Veja alguns depoimentos de quem já confiou na Adão Cadeiras.
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto px-4">
-          <div className="animate-on-scroll">
-            <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 testimonial-slider transform`}>
-              {getVisibleTestimonials().map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-              ))}
-            </div>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </div>
 
-          <div className="flex justify-center mt-10 space-x-4">
-            <button
-              onClick={handlePrev}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
-              aria-label="Depoimento anterior"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            
-            <div className="flex space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    if (isTransitioning) return;
-                    setIsTransitioning(true);
-                    setCurrentIndex(index);
-                    setTimeout(() => setIsTransitioning(false), 600);
-                  }}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    currentIndex === index ? 'bg-primary' : 'bg-gray-300'
-                  }`}
-                  aria-label={`Ir para depoimento ${index + 1}`}
-                />
+        <div className="text-center mt-12">
+          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-card animate-on-scroll">
+            <div className="flex">
+              {[1,2,3,4,5].map(i => (
+                <Star key={i} className="w-5 h-5 text-accent fill-accent" />
               ))}
             </div>
-            
-            <button
-              onClick={handleNext}
-              className="p-3 rounded-full bg-white shadow-md border border-gray-200 text-foreground hover:bg-gray-50 transition-colors"
-              aria-label="Próximo depoimento"
-            >
-              <ChevronRight size={20} />
-            </button>
+            <span className="text-sm font-medium">5.0 estrelas em mais de 1000 eventos</span>
           </div>
         </div>
       </div>
@@ -151,34 +92,37 @@ const TestimonialsSection = () => {
 };
 
 interface TestimonialCardProps {
-  testimonial: {
-    name: string;
-    company: string;
-    image: string;
-    text: string;
-  };
+  name: string;
+  event: string;
+  rating: number;
+  content: string;
+  image: string;
 }
 
-const TestimonialCard = ({ testimonial }: TestimonialCardProps) => (
-  <Card className="border border-border/50 shadow-md service-card h-full">
-    <CardContent className="p-8 h-full flex flex-col">
-      <div className="mb-6 text-primary">
-        <Quote size={32} />
+const TestimonialCard = ({ name, event, rating, content, image }: TestimonialCardProps) => (
+  <Card className="animate-on-scroll service-card border border-border/50 shadow-card relative">
+    <CardContent className="p-6">
+      <div className="absolute top-4 right-4">
+        <Quote className="h-8 w-8 text-accent/20" />
       </div>
       
-      <p className="text-foreground mb-6 flex-grow">{testimonial.text}</p>
+      <div className="flex mb-4">
+        {[...Array(rating)].map((_, i) => (
+          <Star key={i} className="h-4 w-4 text-accent fill-accent" />
+        ))}
+      </div>
+      
+      <p className="text-muted-foreground mb-6 italic">"{content}"</p>
       
       <div className="flex items-center">
-        <div className="w-12 h-12 rounded-full overflow-hidden mr-4 bg-gray-200">
-          <img 
-            src={testimonial.image} 
-            alt={testimonial.name} 
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <img 
+          src={image} 
+          alt={name}
+          className="h-12 w-12 rounded-full object-cover mr-4" 
+        />
         <div>
-          <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-          <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+          <h4 className="font-semibold">{name}</h4>
+          <p className="text-sm text-muted-foreground">{event}</p>
         </div>
       </div>
     </CardContent>
