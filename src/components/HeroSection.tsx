@@ -56,7 +56,7 @@ const HeroSection = () => {
               index === currentImageIndex ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
-              backgroundImage: `linear-gradient(rgba(29, 78, 216, 0.7), rgba(59, 130, 246, 0.5)), url('${image}')`
+              backgroundImage: `url('${image}')`
             }}
           ></div>
         ))}
@@ -77,6 +77,9 @@ const HeroSection = () => {
           />
         ))}
       </div>
+
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/30 z-5"></div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
