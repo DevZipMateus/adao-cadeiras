@@ -1,15 +1,36 @@
-import { useEffect, useRef } from 'react';
+
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ArrowRight, Star } from 'lucide-react';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Array of background images for the carousel
+  const backgroundImages = [
+    '/lovable-uploads/1c9aad18-406a-47a1-9bfa-547947b49c22.png',
+    '/lovable-uploads/8563b0d5-e3dc-4889-a789-e4f78d86a0db.png',
+    '/lovable-uploads/46857d86-0470-4b21-83de-e97e3fb5489a.png',
+    '/lovable-uploads/5a276a58-29a7-4433-9b01-b15d9d4d79b6.png'
+  ];
 
   useEffect(() => {
     if (sectionRef.current) {
       sectionRef.current.classList.add('animate-fade-in');
     }
   }, []);
+
+  // Auto-rotate carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   const scrollToNextSection = () => {
     const aboutSection = document.getElementById('sobre');
@@ -25,15 +46,36 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-20">
-      {/* Background image with overlay */}
+    <section id="inicio" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      {/* Background image carousel */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{
-            backgroundImage: `linear-gradient(rgba(29, 78, 216, 0.7), rgba(59, 130, 246, 0.5)), url('/lovable-uploads/1c9aad18-406a-47a1-9bfa-547947b49c22.png')`
-          }}
-        ></div>
+        {backgroundImages.map((image, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: `linear-gradient(rgba(29, 78, 216, 0.7), rgba(59, 130, 246, 0.5)), url('${image}')`
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* Carousel indicators */}
+      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+        {backgroundImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImageIndex 
+                ? 'bg-white scale-110' 
+                : 'bg-white/50 hover:bg-white/70'
+            }`}
+            aria-label={`Ir para imagem ${index + 1}`}
+          />
+        ))}
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -123,7 +165,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce" onClick={scrollToNextSection}>
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce z-20" onClick={scrollToNextSection}>
         <ChevronDown size={32} />
       </div>
     </section>
