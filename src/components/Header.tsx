@@ -37,9 +37,14 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-primary/95 backdrop-blur-md shadow-nav' 
-          : 'py-4 bg-primary'
+          ? 'py-3 backdrop-blur-md shadow-nav' 
+          : 'py-4'
       }`}
+      style={{
+        background: isScrolled 
+          ? 'linear-gradient(90deg, hsl(0, 0%, 100%) 0%, hsl(45, 95%, 60%) 50%, hsl(220, 85%, 35%) 100%), rgba(255, 255, 255, 0.1)'
+          : 'linear-gradient(90deg, hsl(0, 0%, 100%) 0%, hsl(45, 95%, 60%) 50%, hsl(220, 85%, 35%) 100%)'
+      }}
     >
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex items-center justify-between">
@@ -51,10 +56,10 @@ const Header = () => {
                 className="h-12 w-12 object-contain"
               />
               <div>
-                <h1 className="text-xl md:text-2xl font-display font-bold text-primary-foreground">
+                <h1 className="text-xl md:text-2xl font-display font-bold text-primary">
                   <span className="text-accent">Adão</span> Cadeiras
                 </h1>
-                <p className="text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
+                <p className="text-xs text-primary font-medium">Sua festa merece o melhor lugar</p>
               </div>
             </div>
           </a>
@@ -68,7 +73,7 @@ const Header = () => {
           <div className="hidden md:flex items-center">
             <Button 
               onClick={handleWhatsAppClick}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
             >
               Solicitar Orçamento
             </Button>
@@ -78,7 +83,7 @@ const Header = () => {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-primary-foreground">
+                <Button variant="ghost" size="icon" className="h-10 w-10 text-primary">
                   <Menu size={24} />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
@@ -127,7 +132,7 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
               ? 'text-xl text-primary-foreground hover:text-accent mb-2 w-full text-center py-3' 
-              : 'text-primary-foreground/90 hover:text-accent hover:bg-white/10'
+              : 'text-primary hover:text-accent hover:bg-white/10'
             }`}
           onClick={onClick}
         >
