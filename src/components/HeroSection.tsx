@@ -94,7 +94,7 @@ const HeroSection = () => {
                 <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
                   <div className="text-center mb-6">
                     <img 
-                      src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                      src="/lovable-uploads/4ff42cba-2ac0-4cbb-972f-7064d5c308fd.png" 
                       alt="Logo Adão Cadeiras" 
                       className="h-24 w-24 mx-auto mb-4 object-contain"
                     />

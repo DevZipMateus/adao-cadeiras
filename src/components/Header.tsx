@@ -46,7 +46,7 @@ const Header = () => {
           <a href="#" className="relative z-20">
             <div className="flex items-center gap-3">
               <img 
-                src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                src="/lovable-uploads/4ff42cba-2ac0-4cbb-972f-7064d5c308fd.png" 
                 alt="Adão Cadeiras - Logo" 
                 className="h-12 w-12 object-contain"
               />
