@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ArrowRight, Star } from 'lucide-react';
@@ -32,7 +31,7 @@ const HeroSection = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
           style={{
-            backgroundImage: `linear-gradient(rgba(29, 78, 216, 0.7), rgba(59, 130, 246, 0.5)), url('https://images.unsplash.com/photo-1519167758481-83f29c55eaaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80')`
+            backgroundImage: `linear-gradient(rgba(29, 78, 216, 0.7), rgba(59, 130, 246, 0.5)), url('/lovable-uploads/1c9aad18-406a-47a1-9bfa-547947b49c22.png')`
           }}
         ></div>
       </div>
