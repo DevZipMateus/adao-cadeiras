@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -234,7 +235,112 @@ html {
   left: 100%;
 }
 
-/* Mobile optimizations */
+/* Instagram Gallery Styles */
+.instagram-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  max-width: 935px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  padding-bottom: 100%;
+  background: hsl(var(--muted));
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+}
+
+.gallery-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 85%;
+  max-height: 85%;
+  animation: zoomIn 0.3s ease;
+}
+
+.modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.close-button {
+  position: absolute;
+  top: -50px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: hsl(var(--foreground));
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .section-padding {
     @apply py-8;
@@ -255,13 +361,37 @@ html {
   .mobile-nav-link {
     @apply w-full text-center py-3 px-5;
   }
+
+  .instagram-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3px;
+  }
+
+  .modal-content {
+    max-width: 95%;
+    max-height: 80%;
+  }
+
+  .close-button {
+    top: -40px;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-gallery {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll,
   .service-card,
-  .product-card {
+  .product-card,
+  .gallery-item,
+  .modal-overlay,
+  .modal-content {
     transition: none;
     animation: none;
   }
@@ -270,6 +400,12 @@ html {
 /* Focus indicators for better accessibility */
 .focus-visible {
   outline: 2px solid rgb(59, 130, 246);
+  outline-offset: 2px;
+}
+
+.gallery-item:focus-visible,
+.close-button:focus-visible {
+  outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
 
