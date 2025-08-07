@@ -72,8 +72,8 @@ const AboutSection = () => {
           <div className="animate-on-scroll">
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1519167758481-83f29c55eaaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Evento elegante com cadeiras decoradas" 
+                src="/lovable-uploads/galeria/421049719_1400594890829219_5843344815423125039_n.jpeg" 
+                alt="Evento elegante organizado pela Adão Cadeiras" 
                 className="rounded-2xl shadow-chair object-cover w-full h-96"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
