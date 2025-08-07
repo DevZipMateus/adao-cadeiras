@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ChevronUp } from 'lucide-react';
 
@@ -16,11 +15,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
-                alt="Logo Adão Cadeiras" 
-                className="h-12 w-12 object-contain"
-              />
+              <div className="relative">
+                <div className="absolute inset-0 bg-white rounded-full"></div>
+                <img 
+                  src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                  alt="Logo Adão Cadeiras" 
+                  className="h-12 w-12 object-contain relative z-10"
+                />
+              </div>
               <div>
                 <h3 className="text-xl font-bold">
                   <span className="text-primary">Adão</span> Cadeiras
