@@ -31,22 +31,19 @@ const TestimonialsSection = () => {
       name: "Maria Silva",
       event: "Casamento",
       rating: 5,
-      content: "O Adão e sua equipe foram perfeitos! As cadeiras chegaram no horário, estavam impecáveis e fizeram toda a diferença na decoração do meu casamento. Recomendo de olhos fechados!",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      content: "O Adão e sua equipe foram perfeitos! As cadeiras chegaram no horário, estavam impecáveis e fizeram toda a diferença na decoração do meu casamento. Recomendo de olhos fechados!"
     },
     {
       name: "João Santos",
       event: "Evento Corporativo",
       rating: 5,
-      content: "Excelente serviço! Precisávamos de 200 cadeiras para um seminário e tudo foi entregue pontualmente. A qualidade dos móveis é surpreendente e o atendimento é nota 10.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      content: "Excelente serviço! Precisávamos de 200 cadeiras para um seminário e tudo foi entregue pontualmente. A qualidade dos móveis é surpreendente e o atendimento é nota 10."
     },
     {
       name: "Ana Costa",
       event: "Aniversário",
       rating: 5,
-      content: "Já é a terceira vez que alugo cadeiras com a Adão Cadeiras. Sempre um serviço impecável, cadeiras lindas e bem conservadas. Parabéns pela dedicação e qualidade!",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+      content: "Já é a terceira vez que alugo cadeiras com a Adão Cadeiras. Sempre um serviço impecável, cadeiras lindas e bem conservadas. Parabéns pela dedicação e qualidade!"
     }
   ];
 
@@ -96,10 +93,9 @@ interface TestimonialCardProps {
   event: string;
   rating: number;
   content: string;
-  image: string;
 }
 
-const TestimonialCard = ({ name, event, rating, content, image }: TestimonialCardProps) => (
+const TestimonialCard = ({ name, event, rating, content }: TestimonialCardProps) => (
   <Card className="animate-on-scroll service-card border border-border/50 shadow-card relative">
     <CardContent className="p-6">
       <div className="absolute top-4 right-4">
@@ -114,16 +110,9 @@ const TestimonialCard = ({ name, event, rating, content, image }: TestimonialCar
       
       <p className="text-muted-foreground mb-6 italic">"{content}"</p>
       
-      <div className="flex items-center">
-        <img 
-          src={image} 
-          alt={name}
-          className="h-12 w-12 rounded-full object-cover mr-4" 
-        />
-        <div>
-          <h4 className="font-semibold">{name}</h4>
-          <p className="text-sm text-muted-foreground">{event}</p>
-        </div>
+      <div>
+        <h4 className="font-semibold">{name}</h4>
+        <p className="text-sm text-muted-foreground">{event}</p>
       </div>
     </CardContent>
   </Card>
