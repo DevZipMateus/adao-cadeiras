@@ -1,69 +1,99 @@
+
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
 
 const InstagramGallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
 
-  // Array with gallery images (removed Instagram screenshots, keeping only midia_16 to midia_30)
-  const galleryImages = Array.from({ length: 15 }, (_, index) => ({
-    id: index + 16,
-    src: `/lovable-uploads/galeria/midia_${index + 16}.jpg`,
-    alt: `Evento ${index + 16} - Adão Cadeiras`
-  }));
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!api) return;
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [api]);
-
-  // Track current slide
-  useEffect(() => {
-    if (!api) return;
-
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
-  // Calculate slides per view based on screen size
-  const getSlidesPerView = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth >= 1024) return 3; // lg breakpoint
-      if (window.innerWidth >= 768) return 2;  // md breakpoint
-      return 1; // mobile
+  // Array with all gallery images from the galeria folder
+  const galleryImages = [
+    {
+      id: 1,
+      src: '/lovable-uploads/galeria/158836264_122418069823480_373883690755657855_n.jpg',
+      alt: 'Evento 1 - Adão Cadeiras'
+    },
+    {
+      id: 2,
+      src: '/lovable-uploads/galeria/159975535_257133622696125_5924969915992606861_n.jpg',
+      alt: 'Evento 2 - Adão Cadeiras'
+    },
+    {
+      id: 3,
+      src: '/lovable-uploads/galeria/163970047_716105219073539_860767275870115205_n.jpg',
+      alt: 'Evento 3 - Adão Cadeiras'
+    },
+    {
+      id: 4,
+      src: '/lovable-uploads/galeria/166070659_436067811015220_4625401853513535473_n.jpg',
+      alt: 'Evento 4 - Adão Cadeiras'
+    },
+    {
+      id: 5,
+      src: '/lovable-uploads/galeria/184140314_460943145209197_7745859829712356694_n.jpg',
+      alt: 'Evento 5 - Adão Cadeiras'
+    },
+    {
+      id: 6,
+      src: '/lovable-uploads/galeria/204916377_242178177299471_8601017692325336122_n.jpg',
+      alt: 'Evento 6 - Adão Cadeiras'
+    },
+    {
+      id: 7,
+      src: '/lovable-uploads/galeria/371164999_757403113061797_3388762491690021538_n.jpeg',
+      alt: 'Evento 7 - Adão Cadeiras'
+    },
+    {
+      id: 8,
+      src: '/lovable-uploads/galeria/398184952_348980327520428_4884544028449461223_n.jpeg',
+      alt: 'Evento 8 - Adão Cadeiras'
+    },
+    {
+      id: 9,
+      src: '/lovable-uploads/galeria/421049719_1400594890829219_5843344815423125039_n.jpeg',
+      alt: 'Evento 9 - Adão Cadeiras'
+    },
+    {
+      id: 10,
+      src: '/lovable-uploads/galeria/468927856_18364420555190853_9152400418090912794_n.jpg',
+      alt: 'Evento 10 - Adão Cadeiras'
+    },
+    {
+      id: 11,
+      src: '/lovable-uploads/galeria/469117793_18365287195190853_4792012984879741980_n.jpg',
+      alt: 'Evento 11 - Adão Cadeiras'
+    },
+    {
+      id: 12,
+      src: '/lovable-uploads/galeria/469341734_18365270929190853_749017412423903585_n.jpg',
+      alt: 'Evento 12 - Adão Cadeiras'
+    },
+    {
+      id: 13,
+      src: '/lovable-uploads/galeria/72903073_549907478890703_4720852067685294477_n.jpg',
+      alt: 'Evento 13 - Adão Cadeiras'
+    },
+    {
+      id: 14,
+      src: '/lovable-uploads/galeria/80861838_1317752195083778_7402250467880756825_n.jpg',
+      alt: 'Evento 14 - Adão Cadeiras'
+    },
+    {
+      id: 15,
+      src: '/lovable-uploads/galeria/81029235_2622265014509448_5628145339557464140_n.jpg',
+      alt: 'Evento 15 - Adão Cadeiras'
+    },
+    {
+      id: 16,
+      src: '/lovable-uploads/galeria/82340593_3159655747395898_1202198698418444551_n.jpg',
+      alt: 'Evento 16 - Adão Cadeiras'
+    },
+    {
+      id: 17,
+      src: '/lovable-uploads/galeria/87611875_228859754937316_4480060986231724453_n.jpg',
+      alt: 'Evento 17 - Adão Cadeiras'
     }
-    return 3; // default
-  };
-
-  const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setSlidesPerView(getSlidesPerView());
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  ];
 
   const openModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
@@ -106,67 +136,24 @@ const InstagramGallery = () => {
           </p>
         </div>
 
-        {/* Carousel */}
+        {/* Grid Gallery */}
         <div className="max-w-7xl mx-auto px-4">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {galleryImages.map((image) => (
-                <CarouselItem key={image.id} className="basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 pl-2 md:pl-4">
-                  <div className="group">
-                    <div 
-                      className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-                      onClick={() => openModal(image.src)}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                    </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2 md:-left-12 lg:-left-16 hidden sm:flex" />
-            <CarouselNext className="right-2 md:-right-12 lg:-right-16 hidden sm:flex" />
-          </Carousel>
-
-          {/* Mobile navigation dots */}
-          <div className="flex sm:hidden justify-center mt-6 space-x-2">
-            {Array.from({ length: Math.ceil(galleryImages.length / 1) }).map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  current === index
-                    ? 'bg-primary w-6'
-                    : 'bg-muted-foreground/30'
-                }`}
-                onClick={() => api?.scrollTo(index)}
-              />
-            ))}
-          </div>
-
-          {/* Desktop/Tablet indicators */}
-          <div className="hidden sm:flex justify-center mt-6 space-x-2">
-            {Array.from({ length: Math.ceil(galleryImages.length / slidesPerView) }).map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  Math.floor(current / slidesPerView) === index
-                    ? 'bg-primary w-6'
-                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                }`}
-                onClick={() => api?.scrollTo(index * slidesPerView)}
-              />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {galleryImages.map((image) => (
+              <div key={image.id} className="group">
+                <div 
+                  className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+                  onClick={() => openModal(image.src)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
