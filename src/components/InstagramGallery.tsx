@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 
 const InstagramGallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [api, setApi] = useState<CarouselApi>();
 
   // Array with all gallery images from the galeria folder
   const galleryImages = [
@@ -95,6 +97,17 @@ const InstagramGallery = () => {
     }
   ];
 
+  // Auto-play functionality
+  useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
   const openModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
     setIsModalOpen(true);
@@ -136,26 +149,39 @@ const InstagramGallery = () => {
           </p>
         </div>
 
-        {/* Grid Gallery */}
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {galleryImages.map((image) => (
-              <div key={image.id} className="group">
-                <div 
-                  className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-                  onClick={() => openModal(image.src)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-              </div>
-            ))}
-          </div>
+        {/* Carousel Gallery */}
+        <div className="max-w-4xl mx-auto px-4">
+          <Carousel 
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {galleryImages.map((image) => (
+                <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-2">
+                    <div 
+                      className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group"
+                      onClick={() => openModal(image.src)}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
         </div>
 
         {/* Modal */}
