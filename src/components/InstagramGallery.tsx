@@ -45,6 +45,27 @@ const InstagramGallery = () => {
     });
   }, [api]);
 
+  // Calculate slides per view based on screen size
+  const getSlidesPerView = () => {
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth >= 1024) return 3; // lg breakpoint
+      if (window.innerWidth >= 768) return 2;  // md breakpoint
+      return 1; // mobile
+    }
+    return 3; // default
+  };
+
+  const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlidesPerView(getSlidesPerView());
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const openModal = (imageSrc: string) => {
     setSelectedImage(imageSrc);
     setIsModalOpen(true);
@@ -87,7 +108,7 @@ const InstagramGallery = () => {
         </div>
 
         {/* Carousel */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4">
           <Carousel
             setApi={setApi}
             opts={{
@@ -96,40 +117,56 @@ const InstagramGallery = () => {
             }}
             className="w-full"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-2 md:-ml-4">
               {galleryImages.map((image) => (
-                <CarouselItem key={image.id} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
+                <CarouselItem key={image.id} className="basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 pl-2 md:pl-4">
+                  <div className="group">
                     <div 
-                      className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                      className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
                       onClick={() => openModal(image.src)}
                     >
                       <img
                         src={image.src}
                         alt={image.alt}
                         loading="lazy"
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="left-2 md:-left-12" />
-            <CarouselNext className="right-2 md:-right-12" />
+            <CarouselPrevious className="left-2 md:-left-12 lg:-left-16 hidden sm:flex" />
+            <CarouselNext className="right-2 md:-right-12 lg:-right-16 hidden sm:flex" />
           </Carousel>
 
-          {/* Indicators */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {Array.from({ length: Math.ceil(galleryImages.length / 3) }).map((_, index) => (
+          {/* Mobile navigation dots */}
+          <div className="flex sm:hidden justify-center mt-6 space-x-2">
+            {Array.from({ length: Math.ceil(galleryImages.length / 1) }).map((_, index) => (
               <button
                 key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  Math.floor(current / 3) === index
-                    ? 'bg-primary'
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? 'bg-primary w-6'
                     : 'bg-muted-foreground/30'
                 }`}
-                onClick={() => api?.scrollTo(index * 3)}
+                onClick={() => api?.scrollTo(index)}
+              />
+            ))}
+          </div>
+
+          {/* Desktop/Tablet indicators */}
+          <div className="hidden sm:flex justify-center mt-6 space-x-2">
+            {Array.from({ length: Math.ceil(galleryImages.length / slidesPerView) }).map((_, index) => (
+              <button
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  Math.floor(current / slidesPerView) === index
+                    ? 'bg-primary w-6'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+                onClick={() => api?.scrollTo(index * slidesPerView)}
               />
             ))}
           </div>
@@ -137,20 +174,20 @@ const InstagramGallery = () => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={closeModal}>
-            <div className="relative max-w-4xl max-h-[90vh] m-4" onClick={(e) => e.stopPropagation()}>
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" onClick={closeModal}>
+            <div className="relative max-w-[95vw] max-h-[95vh] w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={closeModal}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10"
+                className="absolute top-2 right-2 md:-top-12 md:-right-4 text-white/80 hover:text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-300 z-10"
                 aria-label="Fechar modal"
               >
-                <X size={32} />
+                <X size={24} className="md:w-8 md:h-8" />
               </button>
               {selectedImage && (
                 <img
                   src={selectedImage}
                   alt="Imagem ampliada"
-                  className="max-w-full max-h-full object-contain rounded-lg"
+                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                 />
               )}
             </div>
