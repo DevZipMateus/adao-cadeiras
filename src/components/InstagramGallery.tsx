@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import {
@@ -16,11 +15,11 @@ const InstagramGallery = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
-  // Array com todas as imagens da galeria
-  const galleryImages = Array.from({ length: 30 }, (_, index) => ({
-    id: index + 1,
-    src: `/lovable-uploads/galeria/midia_${index + 1}.jpg`,
-    alt: `Evento ${index + 1} - Adão Cadeiras`
+  // Array with gallery images (removed Instagram screenshots, keeping only midia_16 to midia_30)
+  const galleryImages = Array.from({ length: 15 }, (_, index) => ({
+    id: index + 16,
+    src: `/lovable-uploads/galeria/midia_${index + 16}.jpg`,
+    alt: `Evento ${index + 16} - Adão Cadeiras`
   }));
 
   // Auto-play functionality
