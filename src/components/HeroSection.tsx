@@ -62,22 +62,6 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Carousel indicators */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {backgroundImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentImageIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentImageIndex 
-                ? 'bg-white scale-110' 
-                : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`Ir para imagem ${index + 1}`}
-          />
-        ))}
-      </div>
-
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/30 z-5"></div>
 
