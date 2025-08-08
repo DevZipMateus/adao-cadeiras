@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Target, Heart, Award, Users } from 'lucide-react';
@@ -27,7 +26,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="sobre" ref={sectionRef} className="section-padding bg-white">
+    <section id="sobre" ref={sectionRef} className="section-padding bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
@@ -77,8 +76,8 @@ const AboutSection = () => {
                 className="rounded-2xl shadow-chair object-cover w-full h-96"
               />
               <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
-                <h4 className="font-bold text-foreground mb-1">Sua festa merece o melhor lugar</h4>
-                <p className="text-sm text-muted-foreground">15 anos fazendo parte dos seus momentos especiais</p>
+                <h4 className="font-bold text-gray-900 mb-1">Sua festa merece o melhor lugar</h4>
+                <p className="text-sm text-gray-700">15 anos fazendo parte dos seus momentos especiais</p>
               </div>
             </div>
           </div>

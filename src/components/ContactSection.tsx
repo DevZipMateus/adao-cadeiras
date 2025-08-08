@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
@@ -54,7 +53,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contato" ref={sectionRef} className="section-padding bg-white relative overflow-hidden">
+    <section id="contato" ref={sectionRef} className="section-padding bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
