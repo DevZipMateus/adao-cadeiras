@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -71,7 +70,7 @@ const HeroSection = () => {
           <div className="flex items-center justify-center">
             <div className="text-center max-w-4xl relative">
               {/* Quadro com imagem de fundo atrás do texto */}
-              <div className="absolute inset-0 z-0 opacity-70 -m-8">
+              <div className="absolute inset-0 z-0 opacity-30 -m-8">
                 <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg h-full">
                   <img
                     src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
