@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -70,16 +69,8 @@ const HeroSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center">
             <div className="text-center max-w-4xl relative">
-              {/* Quadro com imagem de fundo atrás do texto */}
-              <div className="absolute inset-0 z-0 opacity-50 -m-8">
-                <AspectRatio ratio={16 / 9} className="bg-black rounded-lg h-full">
-                  <img
-                    src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
-                    alt="Quadro decorativo"
-                    className="h-full w-full rounded-lg object-cover"
-                  />
-                </AspectRatio>
-              </div>
+              {/* Quadro com fundo preto atrás do texto */}
+              <div className="absolute inset-0 z-0 bg-black/50 rounded-lg -m-8"></div>
 
               {/* Conteúdo de texto */}
               <div className="relative z-10">
@@ -87,11 +78,11 @@ const HeroSection = () => {
                   ✨ 15 anos transformando eventos especiais
                 </span>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
                   Sua festa merece o <span className="text-accent">melhor lugar</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-gray-900 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
+                <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
                   Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
                 </p>
                 
@@ -107,14 +98,14 @@ const HeroSection = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="bg-white/10 backdrop-blur-md border-black/30 text-black hover:bg-white/20"
+                    className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20"
                     onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Ver Nossos Serviços
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-center space-x-8 text-gray-900 text-sm animate-slide-up [animation-delay:1100ms]">
+                <div className="flex items-center justify-center space-x-8 text-gray-200 text-sm animate-slide-up [animation-delay:1100ms]">
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1,2,3,4,5].map(i => (
