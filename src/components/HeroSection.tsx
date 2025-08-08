@@ -47,7 +47,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="inicio" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <section id="inicio" ref={sectionRef} className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 overflow-hidden">
       {/* Background image carousel */}
       <div className="absolute inset-0 z-0">
         {backgroundImages.map((image, index) => (
@@ -66,57 +66,58 @@ const HeroSection = () => {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/30 z-5"></div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center">
             <div className="text-center max-w-4xl relative">
               {/* Quadro com fundo preto atrás do texto */}
-              <div className="absolute inset-0 z-0 bg-black/50 rounded-lg -m-8"></div>
+              <div className="absolute inset-0 z-0 bg-black/50 rounded-lg -m-4 sm:-m-6 md:-m-8"></div>
 
               {/* Conteúdo de texto */}
-              <div className="relative z-10">
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium mb-6 animate-slide-up [animation-delay:300ms]">
+              <div className="relative z-10 p-4 sm:p-6 md:p-8">
+                <span className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium mb-4 sm:mb-6 animate-slide-up [animation-delay:300ms] text-xs sm:text-sm">
                   ✨ 15 anos transformando eventos especiais
                 </span>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
                   Sua festa merece o <span className="text-accent">melhor lugar</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 mb-6 sm:mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms] leading-relaxed">
                   Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:900ms] mb-8">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-slide-up [animation-delay:900ms] mb-6 sm:mb-8">
                   <Button 
                     size="lg" 
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-md shadow-lg group"
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-md shadow-lg group text-sm sm:text-base px-6 py-3 sm:px-8"
                     onClick={handleWhatsAppClick}
                   >
                     Solicitar Orçamento
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20"
+                    className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20 text-sm sm:text-base px-6 py-3 sm:px-8"
                     onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
                   >
-                    Ver Nossos Serviços
+                    <span className="hidden sm:inline">Ver Nossos Serviços</span>
+                    <span className="sm:hidden">Nossos Serviços</span>
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-center space-x-8 text-gray-200 text-sm animate-slide-up [animation-delay:1100ms]">
+                <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-gray-200 text-xs sm:text-sm animate-slide-up [animation-delay:1100ms]">
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1,2,3,4,5].map(i => (
-                        <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-accent fill-accent" />
                       ))}
                     </div>
                     15 anos de experiência
                   </div>
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full mr-2"></div>
                     Atendimento personalizado
                   </div>
                 </div>
@@ -127,8 +128,8 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll down indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce z-20" onClick={scrollToNextSection}>
-        <ChevronDown size={32} />
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-white cursor-pointer animate-bounce z-20" onClick={scrollToNextSection}>
+        <ChevronDown size={24} className="sm:w-8 sm:h-8" />
       </div>
     </section>
   );

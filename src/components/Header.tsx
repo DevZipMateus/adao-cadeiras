@@ -37,8 +37,8 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 backdrop-blur-md shadow-nav' 
-          : 'py-4'
+          ? 'py-2 md:py-3 backdrop-blur-md shadow-nav' 
+          : 'py-3 md:py-4'
       }`}
       style={{
         background: isScrolled 
@@ -46,55 +46,56 @@ const Header = () => {
           : 'linear-gradient(90deg, hsl(0, 0%, 100%) 0%, hsl(45, 95%, 60%) 50%, hsl(220, 85%, 35%) 100%)'
       }}
     >
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <a href="#" className="relative z-20">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
               <img 
                 src="/lovable-uploads/4ff42cba-2ac0-4cbb-972f-7064d5c308fd.png" 
                 alt="Adão Cadeiras - Logo" 
-                className="h-12 w-12 object-contain"
+                className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain"
               />
               <div>
-                <h1 className="text-xl md:text-2xl font-display font-bold text-primary">
+                <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl font-display font-bold text-primary">
                   <span className="text-accent">Adão</span> Cadeiras
                 </h1>
-                <p className="text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
+                <p className="text-[10px] sm:text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
               </div>
             </div>
           </a>
 
           {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden xl:flex items-center space-x-1">
             <NavLinks />
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             <Button 
               onClick={handleWhatsAppClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-2"
             >
-              Solicitar Orçamento
+              <span className="hidden xl:inline">Solicitar Orçamento</span>
+              <span className="xl:hidden">Orçamento</span>
             </Button>
           </div>
 
           {/* Mobile Menu */}
-          <div className="md:hidden">
+          <div className="xl:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 text-primary">
-                  <Menu size={24} />
+                <Button variant="ghost" size="icon" className="h-8 w-8 sm:h-10 sm:w-10 text-primary">
+                  <Menu size={20} className="sm:w-6 sm:h-6" />
                   <span className="sr-only">Abrir menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="top" className="pt-16 pb-8 px-6 bg-primary">
-                <nav className="flex flex-col items-center space-y-4 text-lg">
+                <nav className="flex flex-col items-center space-y-4 text-base sm:text-lg">
                   <NavLinks mobile />
                   <SheetClose asChild>
                     <Button 
                       onClick={handleWhatsAppClick}
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-4"
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground mt-4 py-3"
                     >
                       Solicitar Orçamento
                     </Button>
@@ -131,8 +132,8 @@ const NavLinks = ({ mobile, onClick }: NavLinksProps) => {
           href={link.href}
           className={`font-medium transition-all duration-300 px-3 py-2 rounded-md
             ${mobile 
-              ? 'text-xl text-primary-foreground hover:text-accent mb-2 w-full text-center py-3' 
-              : 'text-primary hover:text-accent hover:bg-white/10'
+              ? 'text-lg sm:text-xl text-primary-foreground hover:text-accent mb-2 w-full text-center py-3' 
+              : 'text-sm lg:text-base text-primary hover:text-accent hover:bg-white/10'
             }`}
           onClick={onClick}
         >
