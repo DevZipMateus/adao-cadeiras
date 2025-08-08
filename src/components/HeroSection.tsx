@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -74,7 +75,7 @@ const HeroSection = () => {
 
               {/* Conteúdo de texto */}
               <div className="relative z-10">
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-gray-900 font-medium mb-6 animate-slide-up [animation-delay:300ms]">
+                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-medium mb-6 animate-slide-up [animation-delay:300ms]">
                   ✨ 15 anos transformando eventos especiais
                 </span>
                 
