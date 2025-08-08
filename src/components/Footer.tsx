@@ -1,6 +1,5 @@
-
 import { Button } from '@/components/ui/button';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -122,8 +121,10 @@ const FooterSocialLink = (props: FooterSocialLinkProps) => (
     {...props}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-foreground/20 hover:bg-primary/80 transition-colors duration-200"
-  />
+    className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent/20 hover:bg-accent/30 transition-colors duration-200"
+  >
+    <Instagram className="h-4 w-4 text-accent" />
+  </a>
 );
 
 export default Footer;
