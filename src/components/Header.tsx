@@ -59,7 +59,7 @@ const Header = () => {
                 <h1 className="text-xl md:text-2xl font-display font-bold text-primary">
                   <span className="text-accent">Adão</span> Cadeiras
                 </h1>
-                <p className="text-xs text-primary font-medium">Sua festa merece o melhor lugar</p>
+                <p className="text-xs text-accent font-medium">Sua festa merece o melhor lugar</p>
               </div>
             </div>
           </a>

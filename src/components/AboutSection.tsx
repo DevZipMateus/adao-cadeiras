@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Check, Target, Heart, Award, Users } from 'lucide-react';
@@ -29,7 +30,7 @@ const AboutSection = () => {
     <section id="sobre" ref={sectionRef} className="section-padding bg-background">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Nossa História
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
@@ -49,7 +50,7 @@ const AboutSection = () => {
               <div className="prose prose-lg text-muted-foreground space-y-4">
                 <p>
                   Tudo começou há 15 anos, com um único modelo de cadeira e o sonho de um homem determinado: 
-                  <strong className="text-primary"> Adão, nosso fundador</strong>. Movido pela vontade de oferecer qualidade 
+                  <strong className="text-accent"> Adão, nosso fundador</strong>. Movido pela vontade de oferecer qualidade 
                   e conforto para eventos especiais, ele iniciou sua jornada com simplicidade, mas com um olhar 
                   atento às necessidades dos clientes.
                 </p>
@@ -61,7 +62,7 @@ const AboutSection = () => {
                 </p>
                 <p>
                   Com 15 anos de mercado, nos orgulhamos de fazer parte de momentos marcantes na vida das pessoas. 
-                  <strong className="text-primary"> Cada cadeira que alugamos carrega um pouco da nossa história</strong> e o 
+                  <strong className="text-accent"> Cada cadeira que alugamos carrega um pouco da nossa história</strong> e o 
                   compromisso de tornar o seu evento mais bonito, organizado e acolhedor.
                 </p>
               </div>
@@ -85,7 +86,7 @@ const AboutSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <AboutCard 
-            icon={<Users className="h-10 w-10 text-primary" />}
+            icon={<Users className="h-10 w-10 text-accent" />}
             title="1000+"
             description="Eventos realizados com sucesso ao longo de 15 anos de mercado"
           />
@@ -95,7 +96,7 @@ const AboutSection = () => {
             description="Cadeiras e móveis de qualidade superior para eventos especiais"
           />
           <AboutCard 
-            icon={<Heart className="h-10 w-10 text-primary" />}
+            icon={<Heart className="h-10 w-10 text-accent" />}
             title="Dedicação"
             description="Compromisso em tornar seu evento mais bonito e acolhedor"
           />
@@ -120,7 +121,7 @@ const AboutCard = ({ icon, title, description }: AboutCardProps) => (
   <Card className="animate-on-scroll service-card border border-border/50 shadow-card text-center">
     <CardContent className="p-6">
       <div className="mb-4 flex justify-center">{icon}</div>
-      <h4 className="text-xl font-bold mb-2 text-primary">{title}</h4>
+      <h4 className="text-xl font-bold mb-2 text-accent">{title}</h4>
       <p className="text-muted-foreground text-sm">{description}</p>
     </CardContent>
   </Card>

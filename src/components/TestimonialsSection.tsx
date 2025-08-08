@@ -51,7 +51,7 @@ const TestimonialsSection = () => {
     <section id="depoimentos" ref={sectionRef} className="section-padding bg-secondary/30 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full -translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-primary/5 rounded-full translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent/5 rounded-full translate-y-1/2 translate-x-1/2 blur-3xl"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
