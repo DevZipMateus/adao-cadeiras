@@ -82,15 +82,15 @@ const HeroSection = () => {
 
               {/* Conteúdo de texto */}
               <div className="relative z-10">
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-black font-medium mb-6 animate-slide-up [animation-delay:300ms]">
+                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-primary font-medium mb-6 animate-slide-up [animation-delay:300ms]">
                   ✨ 15 anos transformando eventos especiais
                 </span>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
                   Sua festa merece o <span className="text-accent">melhor lugar</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-black/80 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
+                <p className="text-lg md:text-xl text-primary/80 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
                   Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
                 </p>
                 
@@ -106,14 +106,14 @@ const HeroSection = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="bg-white/10 backdrop-blur-md border-black/30 text-black hover:bg-white/20"
+                    className="bg-white/10 backdrop-blur-md border-primary/30 text-primary hover:bg-white/20"
                     onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     Ver Nossos Serviços
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-center space-x-8 text-black/70 text-sm animate-slide-up [animation-delay:1100ms]">
+                <div className="flex items-center justify-center space-x-8 text-primary/70 text-sm animate-slide-up [animation-delay:1100ms]">
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1,2,3,4,5].map(i => (
