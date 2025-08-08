@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
@@ -60,7 +61,7 @@ const ContactSection = () => {
       
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Entre em Contato
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">

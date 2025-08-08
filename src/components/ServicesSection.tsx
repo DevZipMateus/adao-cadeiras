@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -69,7 +68,7 @@ const ServicesSection = () => {
     <section id="servicos" ref={sectionRef} className="section-padding bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4 animate-on-scroll">
+          <span className="inline-block px-4 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4 animate-on-scroll">
             Nossos Serviços
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-on-scroll">
