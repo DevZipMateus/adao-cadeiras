@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react';
@@ -111,11 +110,14 @@ const ContactSection = () => {
                 <div className="flex items-center justify-center">
                   <div className="text-center p-6 bg-primary/5 rounded-xl max-w-md">
                     <div className="mb-4">
-                      <img 
-                        src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
-                        alt="Logo Adão Cadeiras" 
-                        className="h-20 w-20 mx-auto object-contain"
-                      />
+                      <div className="relative inline-block">
+                        <div className="absolute inset-0 bg-white rounded-full"></div>
+                        <img 
+                          src="/lovable-uploads/7869cb00-b8eb-4dcd-bfd9-a90294b93463.png" 
+                          alt="Logo Adão Cadeiras" 
+                          className="h-20 w-20 mx-auto object-contain relative z-10"
+                        />
+                      </div>
                     </div>
                     <h3 className="text-xl font-bold mb-3">Prefere falar no WhatsApp?</h3>
                     <p className="text-muted-foreground mb-6">
