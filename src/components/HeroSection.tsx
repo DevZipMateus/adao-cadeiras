@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -82,7 +83,7 @@ const HeroSection = () => {
 
               {/* Conteúdo de texto */}
               <div className="relative z-10">
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-black font-medium mb-6 animate-slide-up [animation-delay:300ms]">
+                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-gray-900 font-medium mb-6 animate-slide-up [animation-delay:300ms]">
                   ✨ 15 anos transformando eventos especiais
                 </span>
                 
@@ -90,7 +91,7 @@ const HeroSection = () => {
                   Sua festa merece o <span className="text-accent">melhor lugar</span>
                 </h1>
                 
-                <p className="text-lg md:text-xl text-black/80 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
+                <p className="text-lg md:text-xl text-gray-900 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
                   Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
                 </p>
                 
@@ -113,7 +114,7 @@ const HeroSection = () => {
                   </Button>
                 </div>
 
-                <div className="flex items-center justify-center space-x-8 text-black/70 text-sm animate-slide-up [animation-delay:1100ms]">
+                <div className="flex items-center justify-center space-x-8 text-gray-900 text-sm animate-slide-up [animation-delay:1100ms]">
                   <div className="flex items-center">
                     <div className="flex mr-2">
                       {[1,2,3,4,5].map(i => (
