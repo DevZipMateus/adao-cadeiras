@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ChevronDown, ArrowRight, Star } from 'lucide-react';
 
 const HeroSection = () => {
@@ -68,50 +69,64 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-center">
-            <div className="text-center max-w-4xl">
-              <span className="inline-block px-4 py-2 bg-accent/20 backdrop-blur-md rounded-full text-white font-medium mb-6 animate-slide-up [animation-delay:300ms]">
-                ✨ 15 anos transformando eventos especiais
-              </span>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
-                Sua festa merece o <span className="text-accent">melhor lugar</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
-                Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:900ms] mb-8">
-                <Button 
-                  size="lg" 
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-md shadow-lg group"
-                  onClick={handleWhatsAppClick}
-                >
-                  Solicitar Orçamento
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20"
-                  onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Ver Nossos Serviços
-                </Button>
+            <div className="text-center max-w-4xl relative">
+              {/* Quadro com imagem de fundo atrás do texto */}
+              <div className="absolute inset-0 z-0 opacity-70 -m-8">
+                <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg h-full">
+                  <img
+                    src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
+                    alt="Quadro decorativo"
+                    className="h-full w-full rounded-lg object-cover"
+                  />
+                </AspectRatio>
               </div>
 
-              <div className="flex items-center justify-center space-x-8 text-white/80 text-sm animate-slide-up [animation-delay:1100ms]">
-                <div className="flex items-center">
-                  <div className="flex mr-2">
-                    {[1,2,3,4,5].map(i => (
-                      <Star key={i} className="w-4 h-4 text-accent fill-accent" />
-                    ))}
-                  </div>
-                  15 anos de experiência
+              {/* Conteúdo de texto */}
+              <div className="relative z-10">
+                <span className="inline-block px-4 py-2 bg-accent/20 backdrop-blur-md rounded-full text-white font-medium mb-6 animate-slide-up [animation-delay:300ms]">
+                  ✨ 15 anos transformando eventos especiais
+                </span>
+                
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up [animation-delay:500ms]">
+                  Sua festa merece o <span className="text-accent">melhor lugar</span>
+                </h1>
+                
+                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-slide-up [animation-delay:700ms]">
+                  Aluguel de cadeiras e móveis de qualidade superior para casamentos, eventos corporativos e festividades inesquecíveis.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:900ms] mb-8">
+                  <Button 
+                    size="lg" 
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-md shadow-lg group"
+                    onClick={handleWhatsAppClick}
+                  >
+                    Solicitar Orçamento
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="bg-white/10 backdrop-blur-md border-white/30 text-white hover:bg-white/20"
+                    onClick={() => document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
+                    Ver Nossos Serviços
+                  </Button>
                 </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
-                  Atendimento personalizado
+
+                <div className="flex items-center justify-center space-x-8 text-white/80 text-sm animate-slide-up [animation-delay:1100ms]">
+                  <div className="flex items-center">
+                    <div className="flex mr-2">
+                      {[1,2,3,4,5].map(i => (
+                        <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                      ))}
+                    </div>
+                    15 anos de experiência
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-2 h-2 bg-accent rounded-full mr-2"></div>
+                    Atendimento personalizado
+                  </div>
                 </div>
               </div>
             </div>
