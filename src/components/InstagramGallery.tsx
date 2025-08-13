@@ -4,7 +4,7 @@ import { X } from 'lucide-react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from '@/components/ui/carousel';
 
 const InstagramGallery = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; description: string } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [api, setApi] = useState<CarouselApi>();
 
@@ -12,88 +12,73 @@ const InstagramGallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: '/lovable-uploads/galeria/158836264_122418069823480_373883690755657855_n.jpg',
-      alt: 'Evento 1 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_1_cadeira dior dourada com assen.jpg',
+      description: 'Cadeira Dior Dourada com Assento Personalizado'
     },
     {
       id: 2,
-      src: '/lovable-uploads/galeria/159975535_257133622696125_5924969915992606861_n.jpg',
-      alt: 'Evento 2 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_2_cadeira dior dourada  souplast.jpg',
+      description: 'Cadeira Dior Dourada com Sousplat'
     },
     {
       id: 3,
-      src: '/lovable-uploads/galeria/163970047_716105219073539_860767275870115205_n.jpg',
-      alt: 'Evento 3 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_3_cadeira medalho de tecido  na.jpg',
+      description: 'Cadeira Medalhão de Tecido Natural'
     },
     {
       id: 4,
-      src: '/lovable-uploads/galeria/166070659_436067811015220_4625401853513535473_n.jpg',
-      alt: 'Evento 4 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_4_cadeira medalho de tela branca.jpeg',
+      description: 'Cadeira Medalhão de Tela Branca'
     },
     {
       id: 5,
-      src: '/lovable-uploads/galeria/184140314_460943145209197_7745859829712356694_n.jpg',
-      alt: 'Evento 5 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_5_cadeira medalho de tela na cor.jpg',
+      description: 'Cadeira Medalhão de Tela Colorida'
     },
     {
       id: 6,
-      src: '/lovable-uploads/galeria/204916377_242178177299471_8601017692325336122_n.jpg',
-      alt: 'Evento 6 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_6_cadeiras modelo katrina   mesa.jpeg',
+      description: 'Cadeiras Modelo Katrina com Mesa'
     },
     {
       id: 7,
-      src: '/lovable-uploads/galeria/371164999_757403113061797_3388762491690021538_n.jpeg',
-      alt: 'Evento 7 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_7_cadeiras modelo ratan.jpeg',
+      description: 'Cadeiras Modelo Rattan'
     },
     {
       id: 8,
-      src: '/lovable-uploads/galeria/398184952_348980327520428_4884544028449461223_n.jpeg',
-      alt: 'Evento 8 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_8_cadeira tiffany branca.jpg',
+      description: 'Cadeira Tiffany Branca'
     },
     {
       id: 9,
-      src: '/lovable-uploads/galeria/421049719_1400594890829219_5843344815423125039_n.jpeg',
-      alt: 'Evento 9 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_9_cadeira tiffany branca 1.jpg',
+      description: 'Cadeira Tiffany Branca - Modelo Alternativo'
     },
     {
       id: 10,
-      src: '/lovable-uploads/galeria/468927856_18364420555190853_9152400418090912794_n.jpg',
-      alt: 'Evento 10 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_10_cadeira tiffany dourada.jpg',
+      description: 'Cadeira Tiffany Dourada'
     },
     {
       id: 11,
-      src: '/lovable-uploads/galeria/469117793_18365287195190853_4792012984879741980_n.jpg',
-      alt: 'Evento 11 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_11_cadeira tiffany dourada2.jpg',
+      description: 'Cadeira Tiffany Dourada - Modelo 2'
     },
     {
       id: 12,
-      src: '/lovable-uploads/galeria/469341734_18365270929190853_749017412423903585_n.jpg',
-      alt: 'Evento 12 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_12_cadeira tiffany dourada  cadei.jpg',
+      description: 'Cadeira Tiffany Dourada - Detalhes'
     },
     {
       id: 13,
-      src: '/lovable-uploads/galeria/72903073_549907478890703_4720852067685294477_n.jpg',
-      alt: 'Evento 13 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_13_cadeira tiffany dourada  toalh.jpg',
+      description: 'Cadeira Tiffany Dourada com Toalha'
     },
     {
       id: 14,
-      src: '/lovable-uploads/galeria/80861838_1317752195083778_7402250467880756825_n.jpg',
-      alt: 'Evento 14 - Adão Cadeiras'
-    },
-    {
-      id: 15,
-      src: '/lovable-uploads/galeria/81029235_2622265014509448_5628145339557464140_n.jpg',
-      alt: 'Evento 15 - Adão Cadeiras'
-    },
-    {
-      id: 16,
-      src: '/lovable-uploads/galeria/82340593_3159655747395898_1202198698418444551_n.jpg',
-      alt: 'Evento 16 - Adão Cadeiras'
-    },
-    {
-      id: 17,
-      src: '/lovable-uploads/galeria/87611875_228859754937316_4480060986231724453_n.jpg',
-      alt: 'Evento 17 - Adão Cadeiras'
+      src: '/lovable-uploads/galeria/Cliente_1_14_guardanapo branco  souplat de.jpg',
+      description: 'Guardanapo Branco com Sousplat Decorativo'
     }
   ];
 
@@ -108,8 +93,8 @@ const InstagramGallery = () => {
     return () => clearInterval(interval);
   }, [api]);
 
-  const openModal = (imageSrc: string) => {
-    setSelectedImage(imageSrc);
+  const openModal = (image: { src: string; description: string }) => {
+    setSelectedImage(image);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
@@ -165,15 +150,22 @@ const InstagramGallery = () => {
                   <div className="p-2">
                     <div 
                       className="aspect-square cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 group"
-                      onClick={() => openModal(image.src)}
+                      onClick={() => openModal({ src: image.src, description: image.description })}
                     >
                       <img
                         src={image.src}
-                        alt={image.alt}
+                        alt={image.description}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                      
+                      {/* Overlay with title on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div className="p-4 text-white">
+                          <p className="text-sm font-medium truncate">{image.description}</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </CarouselItem>
@@ -185,9 +177,9 @@ const InstagramGallery = () => {
         </div>
 
         {/* Modal */}
-        {isModalOpen && (
+        {isModalOpen && selectedImage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" onClick={closeModal}>
-            <div className="relative max-w-[95vw] max-h-[95vh] w-full h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+            <div className="relative max-w-[95vw] max-h-[95vh] w-full h-full flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={closeModal}
                 className="absolute top-2 right-2 md:-top-12 md:-right-4 text-white/80 hover:text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-all duration-300 z-10"
@@ -195,13 +187,21 @@ const InstagramGallery = () => {
               >
                 <X size={24} className="md:w-8 md:h-8" />
               </button>
-              {selectedImage && (
+              
+              <div className="flex flex-col items-center max-w-full max-h-full">
                 <img
-                  src={selectedImage}
-                  alt="Imagem ampliada"
-                  className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                  src={selectedImage.src}
+                  alt={selectedImage.description}
+                  className="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl mb-4"
                 />
-              )}
+                
+                {/* Description */}
+                <div className="bg-black/70 backdrop-blur-md rounded-lg px-6 py-3 max-w-lg text-center">
+                  <h3 className="text-white text-lg font-semibold">
+                    {selectedImage.description}
+                  </h3>
+                </div>
+              </div>
             </div>
           </div>
         )}
